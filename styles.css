@@ -44,6 +44,17 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: text-decoration var(--transition);
+}
+
+a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: underline;
+}
+
 /* ============================================
    Layout
    ============================================ */
@@ -185,7 +196,7 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: var(--color-primary-hover);
+    background-color: var(--color-text);
     transform: translateY(-2px);
 }
 
@@ -304,19 +315,58 @@ section {
 }
 
 .project-links a {
+    text-decoration: none;
     color: var(--color-text-muted);
     transition: color var(--transition);
+}
+
+.project-links a path {
+    fill: var(--color-text-muted);
+    transition: fill var(--transition);
 }
 
 .project-links a:hover {
     color: var(--color-primary);
 }
 
+.project-links a:hover path {
+    fill: var(--color-primary);
+}
+
+.project-links a svg {
+    width: 20px;
+    height: 20px;
+}
+
 .project-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
     font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: var(--spacing-xs);
     color: var(--color-text);
+    transition: color var(--transition);
+}
+
+.project-title span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    margin: 0 0 0 0.5rem;
+}
+
+.project-title path {
+    fill: var(--color-text);
+    transition: fill var(--transition);
+}
+
+a:hover .project-title {
+    color: var(--color-primary);
+}
+
+a:hover .project-title path {
+    fill: var(--color-primary);
 }
 
 .project-description {
@@ -324,6 +374,7 @@ section {
     color: var(--color-text-muted);
     margin-bottom: var(--spacing-md);
     line-height: 1.7;
+    text-align: justify;
 }
 
 .project-tech {
@@ -475,6 +526,7 @@ section {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -510,4 +562,151 @@ section {
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ============================================
+   Project Detail Page
+   ============================================ */
+.project-page {
+    padding-top: calc(70px + var(--spacing-xl));
+    padding-bottom: var(--spacing-2xl);
+    min-height: 100vh;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-lg);
+    transition: color var(--transition);
+}
+
+.back-link:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.project-page-header {
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.project-page-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text);
+}
+
+.project-page-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-lg);
+}
+
+.project-page-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.project-page-links .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.project-page-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.project-page-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+}
+
+.project-page-section p {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-list {
+    list-style: none;
+    max-width: 750px;
+}
+
+.feature-list li {
+    padding: var(--spacing-sm) 0;
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+.feature-list li strong {
+    color: var(--color-text);
+}
+
+.code-block {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    margin: var(--spacing-sm) 0 var(--spacing-md);
+    overflow-x: auto;
+}
+
+.code-block code,
+.code-block pre {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+
+.code-block pre {
+    white-space: pre;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    list-style: none;
+}
+
+.tech-stack li {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+}
+
+@media (max-width: 768px) {
+    .project-page-links {
+        flex-direction: column;
+    }
+
+    .project-page-links .btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
