@@ -61,8 +61,16 @@
 
                 <section class="project-page-section">
                     <h2>How to</h2>
-                    <img width="1920" height="1040" alt="howto" src="https://raw.githubusercontent.com/tarnixtv/DevToys.JsonQuery/refs/heads/main/assets/howto.png" />
+                    <img class="project-image" alt="howto" src="https://raw.githubusercontent.com/tarnixtv/DevToys.JsonQuery/refs/heads/main/assets/howto.png" onclick="openLightbox(this)" />
                 </section>
+
+                <!-- Lightbox -->
+                <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+                    <div class="lightbox-content">
+                        <button class="lightbox-close" aria-label="Close">&times;</button>
+                        <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+                    </div>
+                </div>
 
                 <section class="project-page-section">
                     <h2>Installation</h2>
